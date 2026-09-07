@@ -1,10 +1,15 @@
 from tkinter import *
+from tkinter import messagebox
+from validation import is_positive_float
 
 def pounds_to_euros():
     pounds = txt_pounds.get()
-    if pounds.isdigit():
+    if is_positive_float(pounds):
         euros = float(pounds) * 1.16
+        txt_euros.delete(0, END)
         txt_euros.insert(END,f"{euros:.2f}")
+    else:
+        messagebox.showerror("Error", "Please enter a number greater than 0")
     
 
 window = Tk()
