@@ -2,8 +2,10 @@ from tkinter import *
 
 def pounds_to_euros():
     pounds = txt_pounds.get()
-    euros = float(pounds) * 1.16
-    txt_euros.insert(END,f"{euros:.2f}")
+    if pounds.isdigit():
+        euros = float(pounds) * 1.16
+        txt_euros.insert(END,f"{euros:.2f}")
+    
 
 window = Tk()
 window.geometry("200x300")
